@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edad</title>
+</head>
+<body>
+  <h2>Escribe tu nombre y año de nacimiento</h2>
+
+  <label>Nombre:</label>
+  <input type="text" id="nombre"><br><br>
+
+  <label>Año de nacimiento:</label>
+  <input type="number" id="nacimiento"><br><br>
+
+  <button onclick="calcular()">Mostrar</button>
+
+  <p id="mensaje"></p>
+
+  <script>
+    function calcular() {
+      var nombre = document.getElementById("nombre").value;
+      var nacimiento = document.getElementById("nacimiento").value;
+      var añoActual = 2025;
+      var edad = añoActual - nacimiento;
+      var tipo = "";
+
+      if (edad >= 0 && edad <= 12) {
+        tipo = "Niño";
+      } else if (edad >= 13 && edad <= 17) {
+        tipo = "Adolescente";
+      } else if (edad >= 18 && edad <= 59) {
+        tipo = "Adulto";
+      } else if (edad >= 60) {
+        tipo = "Mayor";
+      } else {
+        tipo = "Edad no válida";
+      }
+
+      document.getElementById("mensaje").innerText =
+        "Hola " + nombre + ", tienes " + edad + " años y eres un " + tipo + ".";
+    }
+  </script>
+</body>
+</html>
